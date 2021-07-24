@@ -3,6 +3,7 @@ package com.example.service;
 import com.example.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,8 +17,8 @@ public class GitHubLookupService {
 
     private final RestTemplate restTemplate;
 
-    public GitHubLookupService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public GitHubLookupService(RestTemplateBuilder restTemplateBuilder) {
+        this.restTemplate = restTemplateBuilder.build();
     }
 
     @Async
